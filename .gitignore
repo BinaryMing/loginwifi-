@@ -3,3 +3,4 @@ loginwifi_v1.spec
 build
 .idea
 __pycache__
+dist/logindata.text

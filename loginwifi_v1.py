@@ -5,7 +5,7 @@ from urllib.parse import quote
 
 from lxml import etree
 from pywifi import PyWiFi, const, Profile
-from requests import Session, get
+from requests import Session
 
 import GUI
 
@@ -91,7 +91,8 @@ class connect_wifi_tools:
             sleep(2)  # 等待2秒后看下是否成功连接了
             i += 1
             if i == 30:
-                input('扫描不到ECUT_STUD,请到信号好的位置后按回车运行')  # 连接10次，若无法连接则用input暂停程序
+                raise EOFError  # 建议不用命令行窗口时使用
+                # input('扫描不到ECUT_STUD,请到信号好的位置后按回车运行')  # 连接10次，若无法连接则用input暂停程序,建议IDE时使用改行代码
         print('ECUT_STUD连接成功')
 
     def login_school_wifi(self, _head, _login_data):
